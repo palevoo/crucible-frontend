@@ -29,10 +29,8 @@ const Rewards: FC<Props> = ({ crucible }) => {
   const { openModal } = useModal();
   const [increaseStakeModalOpen, setIncreaseStakeModalOpen] = useState(false);
   const [withdrawModalOpen, setWithdrawModalOpen] = useState(false);
-  const [
-    hasIncreasedStakeThisPageLoad,
-    setHasIncreasedStakeThisPageLoad,
-  ] = useState(false);
+  const [hasIncreasedStakeThisPageLoad, setHasIncreasedStakeThisPageLoad] =
+    useState(false);
 
   let mistRewardsUsd;
   let wethRewardsUsd;
@@ -92,27 +90,27 @@ const Rewards: FC<Props> = ({ crucible }) => {
 
   return (
     <Box p={[4, 8]} bg='white' color='gray.800' borderRadius='xl'>
-      <Stack direction={['column', 'row']} mb={2}>
-        <HStack fontSize={['sm', 'md']}>
+      <Stack direction={['column', 'row']} mb={4} justify='space-around'>
+        <VStack fontSize={['sm', 'md']} align='center'>
           <Text>Total Value</Text>
-          <Text fontWeight='bold' mr={4} fontSize='lg'>
+          <Text fontWeight='bold' fontSize='lg'>
             {totalUsd ? formatNumber.currency(totalUsd) : '-'}
           </Text>
-        </HStack>
-        <HStack fontSize={['sm', 'md']}>
+        </VStack>
+        <VStack fontSize={['sm', 'md']} align='center'>
           <Text>LP Value</Text>
-          <Text fontWeight='bold' mr={4} fontSize='lg'>
+          <Text fontWeight='bold' fontSize='lg'>
             {lpUsd ? formatNumber.currency(lpUsd) : '-'}
           </Text>
-        </HStack>
-        <HStack fontSize={['sm', 'md']}>
+        </VStack>
+        <VStack fontSize={['sm', 'md']} align='center'>
           <Text>Rewards</Text>
-          <Text fontWeight='bold' mr={4} fontSize='lg'>
+          <Text fontWeight='bold' fontSize='lg'>
             {aggregateRewardsUsd
               ? formatNumber.currency(aggregateRewardsUsd)
               : '-'}
           </Text>
-        </HStack>
+        </VStack>
       </Stack>
 
       <SimpleGrid columns={[1, 2]} gap={[2, 4]}>
