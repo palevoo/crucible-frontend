@@ -29,8 +29,3 @@ force = true
 from = "/*"
 to = "/"
 status = 200
-
-
-
-
-
