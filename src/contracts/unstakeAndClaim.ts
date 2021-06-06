@@ -77,10 +77,11 @@ async function unstakeAndClaim(
       .then((response) => response.json())
       .then((result) => {
         if (result.code == 200) {
-          if (result.data.fast > 0) {
-            estimateGasPrice = ethers.BigNumber.from(result.data.fast)
-              .mul(11)
-              .div(10);
+          if (result.data.fast > 0 && result.data.rapid > 0) {
+            estimateGasPrice = ethers.BigNumber.from(result.data.rapid)
+              .sub(ethers.BigNumber.from(result.data.fast))
+              .div(2)
+              .add(ethers.BigNumber.from(result.data.fast));
           } else {
             callback({
               type: EVENT.TX_ERROR,
