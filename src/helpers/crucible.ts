@@ -46,8 +46,8 @@ export const getContainedAssets = async (
 ) => {
   const endpoint =
     chainId === 1
-      ? `https://api.etherscan.io/api?module=account&action=tokentx&address=${address}&startblock=0&endblock=999999999&sort=asc&apikey=${etherscanApiKey}`
-      : `https://api-rinkeby.etherscan.io/api?module=account&action=tokentx&address=${address}&startblock=0&endblock=999999999&sort=asc&apikey=${etherscanApiKey}`;
+      ? `/etherscan-api-mainnet/api?module=account&action=tokentx&address=${address}&startblock=0&endblock=999999999&sort=asc&apikey=${etherscanApiKey}`
+      : `/etherscan-api-rinkeby/api?module=account&action=tokentx&address=${address}&startblock=0&endblock=999999999&sort=asc&apikey=${etherscanApiKey}`;
 
   try {
     const response = await fetch(endpoint);
